@@ -1,137 +1,202 @@
-# IOT_OMR_SCANNER
+<div align="center">
 
-The **IOT_OMR_SCANNER** is an IoT-based project designed to automate the evaluation of OMR (Optical Mark Recognition) sheets. By using an ESP32 microcontroller paired with the ESP32-CAM module, this project captures high-resolution images of OMR sheets and processes them using OpenCV to detect and validate answers against a predefined answer key.
+# 🔍 IoT OMR Scanner
 
----
+**Automated Optical Mark Recognition System with ESP32-CAM**
 
-## Features
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)](https://www.python.org/downloads/)
+[![OpenCV](https://img.shields.io/badge/OpenCV-4.x-green.svg)](https://opencv.org/)
+[![ESP32](https://img.shields.io/badge/ESP32-CAM-red.svg)](https://www.espressif.com/)
 
-1. **Image Capture with ESP32-CAM**
-   - High-resolution image capture of OMR sheets.
-   - Compact and cost-effective hardware solution.
+[Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Hardware](#-hardware-requirements) • [Contributing](#-contributing)
 
-2. **OpenCV Integration**
-   - Grayscale conversion and Gaussian blur for noise reduction.
-   - Edge detection using the Canny Edge Detector.
-   - Circle detection on OMR sheets using Hough Circle Transform.
-
-3. **Answer Validation**
-   - Automatically sorts detected circles based on their position (top-to-bottom, left-to-right).
-   - Compares detected answers with a predefined answer key.
-   - Highlights correct answers in red and incorrect answers in green on the output image.
-
-4. **Real-Time Processing**
-   - Fast and efficient evaluation of OMR sheets, making it suitable for educational institutions and exam evaluations.
+</div>
 
 ---
 
-## Installation
+## 📖 About
 
-1. Clone the repository:
+The **IoT OMR Scanner** is an innovative IoT-based solution that automates the evaluation of OMR (Optical Mark Recognition) sheets. Combining the power of ESP32-CAM for image capture with advanced OpenCV algorithms, this system provides accurate, real-time processing for educational institutions and examination centers.
+
+## ✨ Features
+
+### 📷 Smart Image Capture
+
+- **High-resolution imaging** with ESP32-CAM module
+- **Cost-effective** and compact hardware solution
+- **Wireless connectivity** for remote operation
+
+### 🧠 Advanced Computer Vision
+
+- **Intelligent preprocessing** with grayscale conversion and Gaussian blur
+- **Precise edge detection** using Canny Edge Detector
+- **Accurate circle detection** via Hough Circle Transform
+
+### ✅ Automated Answer Validation
+
+- **Smart positioning** algorithm (top-to-bottom, left-to-right sorting)
+- **Real-time comparison** with predefined answer keys
+- **Visual feedback** with color-coded results:
+  - 🔴 **Red circles**: Correct answers
+  - 🟢 **Green circles**: Incorrect answers
+
+### ⚡ Real-Time Processing
+
+- **Fast evaluation** suitable for high-volume environments
+- **Instant results** with detailed analytics
+- **Educational-grade accuracy** for reliable assessments
+
+## 🚀 Installation
+
+### Prerequisites
+
+- Python 3.7 or higher
+- ESP32-CAM module with firmware
+
+### Quick Start
+
+1. **Clone the repository**
+
    ```bash
-   git clone https://github.com/yourusername/IOT_OMR_SCANNER.git
+   git clone https://github.com/Nafisarkar/IOT_OMR_SCANNER.git
+   cd IOT_OMR_SCANNER
    ```
 
-2. Install the required Python libraries:
+2. **Install dependencies**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+   Or install manually:
+
    ```bash
    pip install opencv-python numpy imutils
    ```
 
-3. Flash the ESP32-CAM module with the necessary firmware for image capture.
+3. **Configure ESP32-CAM**
 
-4. Configure the paths in the script to match your local environment.
+   - Flash the ESP32-CAM with the provided firmware
+   - Set up wireless connection parameters
+
+4. **Setup paths**
+   - Update image paths in the configuration file
+   - Ensure proper directory structure
+
+## 📱 Usage
+
+### Step-by-Step Process
+
+1. **📸 Capture Image**
+
+   ```
+   Use ESP32-CAM to capture OMR sheet → Save to img/ folder
+   ```
+
+2. **🔧 Run Scanner**
+
+   ```bash
+   python main.py
+   ```
+
+3. **📊 View Results**
+   - Processed image with highlighted answers
+   - Console output with detection statistics
+   - Accuracy metrics and analysis
+
+### Expected Output
+
+```
+Total circles detected: 40
+Correct answers: 35
+Accuracy: 87.5%
+```
+
+### Core Components
+
+| Component               | Technology       | Purpose                               |
+| ----------------------- | ---------------- | ------------------------------------- |
+| **Image Preprocessing** | OpenCV           | Noise reduction, grayscale conversion |
+| **Edge Detection**      | Canny Algorithm  | Boundary identification               |
+| **Circle Detection**    | Hough Transform  | Mark recognition                      |
+| **Validation Engine**   | Custom Algorithm | Answer comparison                     |
+
+## 📋 Hardware Requirements
+
+### Essential Components
+
+- 🔧 **ESP32-CAM Module**
+- 🔧 **ESP32 Development Board**
+- 🔌 **Power Supply** (USB Cable or external)
+- 📄 **OMR Sheets** (standard format)
+
+### Optional Enhancements
+
+- 💡 **LED Lighting** for better image quality
+- 📦 **Enclosure** for portable operation
+- 🔋 **Battery Pack** for mobile use
+
+## 💻 Software Stack
+
+| Technology  | Version | Purpose              |
+| ----------- | ------- | -------------------- |
+| **Python**  | 3.7+    | Core processing      |
+| **OpenCV**  | 4.x     | Computer vision      |
+| **NumPy**   | Latest  | Numerical operations |
+| **Imutils** | Latest  | Image utilities      |
+
+## 🎯 Example Results
+
+### Before Processing
+
+![Input OMR Sheet](img/image.png)
+
+### After Processing
+
+- ✅ **Correct answers**: Highlighted in red
+- ❌ **Incorrect answers**: Highlighted in green
+- 📊 **Statistics**: Displayed in terminal
+
+## 🤝 Contributing
+
+We welcome contributions! Here's how you can help:
+
+1. **🍴 Fork** the repository
+2. **🌟 Create** a feature branch (`git checkout -b feature/AmazingFeature`)
+3. **💾 Commit** your changes (`git commit -m 'Add some AmazingFeature'`)
+4. **📤 Push** to the branch (`git push origin feature/AmazingFeature`)
+5. **🔀 Open** a Pull Request
+
+### Areas for Contribution
+
+- 🐛 Bug fixes and improvements
+- 📚 Documentation enhancements
+- ✨ New features and algorithms
+- 🧪 Test coverage expansion
+
+## 📄 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- **OpenCV Community** - For providing powerful computer vision tools
+- **ESP32 Community** - For comprehensive documentation and support
+- **Contributors** - For making this project better
+
+## 📬 Contact & Support
+
+- **Author**: Shaon An Nafi
+- **Issues**: [GitHub Issues](https://github.com/Nafisarkar/IOT_OMR_SCANNER/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/Nafisarkar/IOT_OMR_SCANNER/discussions)
 
 ---
 
-## Usage
+<div align="center">
 
-1. **Capture an Image**:
-   - Use the ESP32-CAM module to capture an image of the OMR sheet.
+**⭐ Star this repository if you found it helpful!**
 
-2. **Run the Script**:
-   - Place the captured image in the specified folder (e.g., `img/`).
-   - Execute the Python script:
-     ```bash
-     python omr_scanner.py
-     ```
+[🔝 Back to top](#-iot-omr-scanner)
 
-3. **Output**:
-   - The script processes the image and highlights the answers:
-     - **Red circles**: Correct answers.
-     - **Green circles**: Incorrect answers.
-   - Displays the total number of detected circles and matched answers in the terminal.
-
----
-
-## Code Overview
-
-- **Image Preprocessing**:
-  - Grayscale conversion and Gaussian blur to reduce noise.
-  - Edge detection using Canny Edge Detector.
-
-- **Circle Detection**:
-  - Hough Circle Transform for detecting marked circles.
-
-- **Answer Validation**:
-  - Compares the detected circles with a predefined answer key.
-  - Highlights answers based on correctness.
-
-- **Visualization**:
-  - Outputs a resized and annotated image for easy verification.
-
----
-
-## Example
-
-### Input Image:
-An OMR sheet image captured using the ESP32-CAM module.
-
-### Output Image:
-A processed image with:
-- Correct answers highlighted in **red**.
-- Incorrect answers highlighted in **green**.
-
----
-
-## Hardware Requirements
-
-1. **ESP32-CAM Module**
-2. **ESP32 Development Board**
-3. Power Supply or USB Cable
-4. OMR Sheets
-
----
-
-## Software Requirements
-
-1. Python 3.7 or above
-2. Required Libraries:
-   - OpenCV
-   - NumPy
-   - Imutils
-
----
-
-## Contribution
-
-Contributions are welcome! Feel free to submit a pull request or open an issue for bug reports or feature suggestions.
-
----
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
-
----
-
-## Acknowledgements
-
-- **OpenCV**: For providing powerful computer vision tools.
-- **ESP32 Community**: For documentation and support.
-
----
-
-## Contact
-
-For any inquiries or feedback, feel free to contact me at [your_email@example.com].
-
+</div>
